@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715672956235",
+    "project_id": "hackathonabren",
+    "storage_bucket": "hackathonabren.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715672956235:android:8b8fddc55d26aac74f8cce",
+        "android_client_info": {
+          "package_name": "com.example.hackathonabren"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715672956235-t4k7te6fraoo345ajvrr4fv7g26k79hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqrAS79ti_joaUrCEC4LxPSccss50mRyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715672956235-t4k7te6fraoo345ajvrr4fv7g26k79hm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
