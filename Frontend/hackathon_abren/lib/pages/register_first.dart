@@ -23,7 +23,7 @@ class _RegisterFirstState extends State<RegisterFirst> {
             )),
         body: Padding(
             padding: EdgeInsets.symmetric(
-                vertical: 10, horizontal: 20), //TODO: Responsive
+                vertical: 10, horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,

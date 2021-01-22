@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonabren/pages/driver_requets_and_accepted.dart';
 import 'package:hackathonabren/pages/register_first.dart';
 import 'package:hackathonabren/pages/signin.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/signup' : (context) => RegisterFirst(),
+        '/driver_requests': (context) => DriverRequestsAndAccepted(),
       },
       home: SignIn(),
     );

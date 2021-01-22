@@ -77,13 +77,13 @@ class _RiderHomeState extends State<RiderHome> {
                             Navigator.pushNamed(context, '/rider_requests');
                           },
                           title: Text(
-                            "KADISCO General Hospital",
+                            "Roba Bakery",
                             style: TextStyle(
                               color: Theme.of(context).primaryColor
                             ),
                           ),
                           subtitle: Text(
-                              "Last Traveled on June 2, 2020"
+                              "Last Traveled on January 15, 2021"
                           ),
                           trailing: Icon(Icons.arrow_forward_ios, color: Colors.black26,),
                         ),

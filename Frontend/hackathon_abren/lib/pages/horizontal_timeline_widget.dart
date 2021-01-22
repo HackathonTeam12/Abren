@@ -11,7 +11,6 @@ class HorizontalTimelineWidget extends StatefulWidget {
 }
 
 class _HorizontalTimelineWidgetState extends State<HorizontalTimelineWidget> {
-  //TODO: Adjust size according to list size, try alternating directions
   List<Widget> timeline;
   List<Widget> timelineText;
 

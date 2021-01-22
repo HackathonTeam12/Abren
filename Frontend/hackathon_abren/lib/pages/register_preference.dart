@@ -17,7 +17,6 @@ class _RegisterPreferenceState extends State<RegisterPreference> {
   TextEditingController _codeController = new TextEditingController();
 
   Map<String, List> preferenceValues = {
-    //TODO: Better implementation
     "18 - 25": [false, false, false],
     "25 - 50": [false, false, false],
     "> 50 ": [false, false, false],

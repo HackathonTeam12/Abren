@@ -46,7 +46,7 @@ class _DriverHomeState extends State<DriverHome> {
                     fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                "Last Taken: Jul 20, 2020",
+                "Last Taken: January 19, 2021",
                 style: TextStyle(fontSize: 11),
               ),
               trailing: Icon(Icons.arrow_forward_ios),

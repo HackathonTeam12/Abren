@@ -127,7 +127,7 @@ class _SignInState extends State<SignIn> {
                   color: Colors.white,
                   borderSide: BorderSide(
                       color: Theme.of(context)
-                          .accentColor), // TODO: On pressed color
+                          .accentColor),
                   focusColor: Theme.of(context).primaryColor,
                   padding: EdgeInsets.all(15),
                   onPressed: () {

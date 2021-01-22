@@ -250,7 +250,7 @@ class _RegisterInfoState extends State<RegisterInfo> {
                             color: Colors.grey[500]
                         ),
                         title: Text(
-                            "Select Image of Kebele Id", //TODO: Edit icon
+                            "Select Image of Kebele Id",
                             style: TextStyle(color: Colors.grey[500], fontSize: 15),
                         )
                       ),

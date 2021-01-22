@@ -6,7 +6,7 @@ class DrawerWidget extends StatefulWidget {
   _DrawerWidgetState createState() => _DrawerWidgetState();
 }
 
-class _DrawerWidgetState extends State<DrawerWidget> { //TODO: Disconnect on item tapped
+class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
