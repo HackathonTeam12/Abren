@@ -27,6 +27,7 @@ dependencies:
   firebase_analytics: ^5.0.2
   firebase_auth: ^0.14.0+5
   image_picker: ^0.6.7+12
+  sliding_up_panel: ^1.0.2
 
 
 

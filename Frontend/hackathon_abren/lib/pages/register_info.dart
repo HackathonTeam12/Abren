@@ -368,7 +368,7 @@ class _RegisterInfoState extends State<RegisterInfo> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                RegisterPreference()),
+                                RegisterPreference(role: widget.role)),
                       );
                     },
                     color: Theme.of(context).primaryColor,

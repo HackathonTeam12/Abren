@@ -1,11 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hackathonabren/pages/driver_home.dart';
+import 'package:hackathonabren/pages/rider_home.dart';
 
 import '../main.dart';
 
 class RegisterPreference extends StatefulWidget {
-  const RegisterPreference({Key key}): super(key : key);
+  final String role;
+  const RegisterPreference({Key key, this.role}): super(key : key);
   @override
   _RegisterPreferenceState createState() => _RegisterPreferenceState();
 }
@@ -172,8 +175,14 @@ class _RegisterPreferenceState extends State<RegisterPreference> {
                   Expanded(
                     child: RaisedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                        if(widget.role == "DRIVER"){
+                          Navigator.pushReplacement(
+                              context, MaterialPageRoute(builder: (context) => DriverHome()));
+                        }else{
+                          Navigator.pushReplacement(
+                              context, MaterialPageRoute(builder: (context) => RiderHome()));
+                        }
+
                       },
                       color: Theme.of(context).primaryColor,
                       textColor: Colors.white,
