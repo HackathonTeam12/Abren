@@ -2,26 +2,29 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 
+import 'horizontal_timeline_widget.dart';
 import 'map_widget.dart';
 
-class DriverRequests extends StatefulWidget {
-  const DriverRequests({Key key}) : super(key: key);
-
+class RiderRequests extends StatefulWidget {
   @override
-  _DriverRequestsState createState() => _DriverRequestsState();
+  _RiderRequestsState createState() => _RiderRequestsState();
 }
 
-class _DriverRequestsState extends State<DriverRequests> {
+class _RiderRequestsState extends State<RiderRequests> {
+
   MapWidget mapWidget;
   final GlobalKey<MapWidgetState> mapKey = GlobalKey<MapWidgetState>();
   @override
   void initState() {
-    mapWidget = MapWidget(key: mapKey, images: ["assets/symbols/marker.png"]);
+    mapWidget = MapWidget(key: mapKey, images: [
+      "assets/symbols/car.png"
+    ]);
     super.initState();
   }
+
+
 
   List<Widget> buildStars(double rating) {
     List<Widget> stars = [];
@@ -51,6 +54,14 @@ class _DriverRequestsState extends State<DriverRequests> {
     return stars;
   }
 
+  List<String> pathPoints = [
+    "Yerer",
+    "Mebrat Hail",
+    "Roba",
+    "Bole Homes",
+    "Bole"
+  ];
+
   bool called1 = false;
   bool called2 = false;
   Widget requestContainer = Chip(
@@ -78,12 +89,13 @@ class _DriverRequestsState extends State<DriverRequests> {
       ],
     ),
   );
+
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
 
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 2), () {
       if (!called1) {
         print("CALLED");
         setState(() {
@@ -120,11 +132,8 @@ class _DriverRequestsState extends State<DriverRequests> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
               Container(
-                width: screenWidth - 40,
+                width: screenWidth,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -152,7 +161,7 @@ class _DriverRequestsState extends State<DriverRequests> {
                               color: Theme.of(context).primaryColor),
                           SizedBox(width: 10),
                           Text(
-                            "Amen Sime",
+                            "Salem Getachew",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
@@ -226,31 +235,8 @@ class _DriverRequestsState extends State<DriverRequests> {
                                   ),
                                   Container(
                                     child: Wrap(
-                                      children: buildStars(4),
+                                      children: buildStars(4.5),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Destination:",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Roba Bakery",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor),
                                   ),
                                 ],
                               ),
@@ -262,7 +248,41 @@ class _DriverRequestsState extends State<DriverRequests> {
                   ),
                 ),
               ),
-              SizedBox(width: 5),
+              SizedBox(height: 5),
+              Container(
+                  width: screenWidth,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(1, 1), // changes position of shadow
+                      ),
+                    ],
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        pathPoints[0] +
+                            " ---> " +
+                            pathPoints[pathPoints.length - 1],
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 5),
+                      HorizontalTimelineWidget(pathPoints: pathPoints),
+                    ],
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -280,7 +300,7 @@ class _DriverRequestsState extends State<DriverRequests> {
                       onPressed: () {},
                       color: Theme.of(context).primaryColor,
                       child: Text(
-                        "Accept",
+                        "Cancel",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -291,7 +311,7 @@ class _DriverRequestsState extends State<DriverRequests> {
                         onPressed: () {},
                         color: Theme.of(context).primaryColor,
                         child:
-                            Icon(Icons.arrow_forward_ios, color: Colors.white)),
+                        Icon(Icons.arrow_forward_ios, color: Colors.white)),
                   )
                 ],
               )
@@ -301,7 +321,7 @@ class _DriverRequestsState extends State<DriverRequests> {
       }
     });
 
-    Timer(Duration(seconds: 10), () {
+    Timer(Duration(seconds: 15), () {
       if (!called2) {
         print("CALLED");
         setState(() {
@@ -318,13 +338,13 @@ class _DriverRequestsState extends State<DriverRequests> {
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.deepOrange[700]),
+                      color: Theme.of(context).primaryColor),
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Text(
-                  "Requests",
+                  "Nearby",
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 16,
@@ -337,69 +357,16 @@ class _DriverRequestsState extends State<DriverRequests> {
       }
     });
 
+
     return Stack(
       children: [
         mapWidget,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Chip(
-                      backgroundColor: Colors.white,
-                      label: Row(
-                        children: [
-                          Icon(Icons.wifi),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Receiving Requests",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 30),
-                  Expanded(
-                    child: RaisedButton(
-                      onPressed: () {},
-                      color: Theme.of(context).primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.stop_circle_outlined,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 7,
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Stop",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
               requestContainer
             ],
           ),
@@ -408,5 +375,3 @@ class _DriverRequestsState extends State<DriverRequests> {
     );
   }
 }
-
-class Request {}
