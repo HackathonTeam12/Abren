@@ -51,7 +51,8 @@ class _DriverRequestsState extends State<DriverRequests> {
     return stars;
   }
 
-  bool called = false;
+  bool called1 = false;
+  bool called2 = false;
   Widget requestContainer = Chip(
     backgroundColor: Colors.white,
     label: Wrap(
@@ -60,10 +61,9 @@ class _DriverRequestsState extends State<DriverRequests> {
           "0",
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.deepOrange[700]
-          ),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.deepOrange[700]),
         ),
         SizedBox(
           width: 10,
@@ -84,12 +84,12 @@ class _DriverRequestsState extends State<DriverRequests> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     Timer(Duration(seconds: 5), () {
-      if (!called) {
+      if (!called1) {
         print("CALLED");
         setState(() {
-          called = true;
-          mapKey.currentState.addSymbol(LatLng(9.002915, 38.817478),
-              "assets/symbols/marker.png"); //TODO: Symbol not working
+          called1 = true;
+          mapKey.currentState.addSymbol(
+              LatLng(9.002915, 38.817478), "assets/symbols/marker.png");
 
           requestContainer = Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -296,6 +296,42 @@ class _DriverRequestsState extends State<DriverRequests> {
                 ],
               )
             ],
+          );
+        });
+      }
+    });
+
+    Timer(Duration(seconds: 15), () {
+      if (!called2) {
+        print("CALLED");
+        setState(() {
+          called2 = true;
+          mapKey.currentState.removeAll();
+
+          requestContainer = Chip(
+            backgroundColor: Colors.white,
+            label: Wrap(
+              children: [
+                Text(
+                  "0",
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepOrange[700]),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Requests",
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
           );
         });
       }
