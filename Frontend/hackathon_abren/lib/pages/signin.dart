@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackathonabren/main.dart';
+import 'package:hackathonabren/pages/driver_home.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -93,7 +94,7 @@ class _SignInState extends State<SignIn> {
                 RaisedButton(
                   onPressed: () {
                     Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                        context, MaterialPageRoute(builder: (context) => DriverHome()));
                   },
                   padding: EdgeInsets.all(15),
                   color: Theme.of(context).primaryColor,
