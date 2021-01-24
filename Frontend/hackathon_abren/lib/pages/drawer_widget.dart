@@ -63,10 +63,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
             onTap: () {
               Navigator.pop(context);
-//              Navigator.pushReplacement(
-//                  context, MaterialPageRoute(builder: (context) => DriverHome()));
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => RiderHome()));
+                  context, MaterialPageRoute(builder: (context) => DriverHome()));
+//              Navigator.pushReplacement(
+//                  context, MaterialPageRoute(builder: (context) => RiderHome()));
             },
           ),
           ListTile(
@@ -77,10 +77,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             ),
             onTap: () {
               Navigator.pop(context);
-//              Navigator.pushReplacement(
-//                  context, MaterialPageRoute(builder: (context) => DriverHomeAmharic()));
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => RiderHomeAmharic()));
+                  context, MaterialPageRoute(builder: (context) => DriverHomeAmharic()));
+//              Navigator.pushReplacement(
+//                  context, MaterialPageRoute(builder: (context) => RiderHomeAmharic()));
             },
           ),
           ListTile(
